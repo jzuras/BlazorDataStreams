@@ -1,0 +1,25 @@
+﻿@inject IMessageService MessageService
+
+<tr>
+    <td>
+        <input type="hidden" class="hiddenName" name="name" value="@Item!.Name" />
+        <button class="displayButton btn btn-success tableButton" @onclick="Display">Display</button>
+    </td>
+    <td>@ClientOrServer</td>
+    <td>@Item.Name</td>
+    <td>@Item.MinValue</td>
+    <td>@Item.MaxValue</td>
+</tr>
+
+@code {
+    [Parameter]
+    public Stream? Item { get; set; }
+
+    [Parameter]
+    public string ClientOrServer { get; set; } = "";
+
+    private async Task Display()
+    {
+        await MessageService.PublishAsync(Item);
+    }
+}

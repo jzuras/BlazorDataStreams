@@ -1,0 +1,43 @@
+﻿@inject IMessageService MessageService
+
+@if (Model == null)
+{
+    <p><em>[Click 'Display' on a [@ClientOrServer] Stream above to get started.]</em></p>
+}
+else
+{
+    <div id="partialContainer">
+        <div class="mb-3">
+            Displaying Stream: @Model!.CurrentlySelectedStream
+            <input type="hidden" id="assignedID" value="@Model.IdAssignedByApi" />
+            <input type="hidden" id="apiType" value="@Model.ApiType" />
+            <input type="hidden" id="version" value="@Model.Version" />
+        </div>
+
+        <div id="sectionsContainer">
+            <div id="updateSection">
+                <div class="mb-3">
+                    <label for="updateTextbox" )>API Response:</label>
+                    <textarea id="updateTextbox" rows="6" readonly>@ApiResponse</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="intervalSlider">Update Interval (0.1 to 5 seconds):</label>
+                    <input type="range" id="intervalSlider" min="1" max="50" step="1" @bind="UpdateInterval" @oninput="UpdateTimerInterval"/>
+                    <span id="intervalValue">@(UpdateInterval/10.0)</span> second(s)
+                </div>
+
+                <div>
+                    <button id="startStopButton" @onclick="ToggleTimer">@ButtonText</button>
+                </div>
+            </div>
+
+            <div id="rapidUpdateSection">
+                <label for="apiCallsCount">API Calls in 3 seconds:</label>
+                <input type="text" id="apiCallsCount" @bind="ApiCallsCount" readonly />
+
+                <button id="rapidUpdateButton" disabled="@IsTimerRunning" @onclick="RunRapidUpdate">Run as fast as possible for 3 seconds</button>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,19 @@
+﻿<!--
+    Note to self - this example uses CSS Isolation which is the typical pattern for razor class libraries.
+    However - this page shows other options (same for JS isolation):
+    https://learn.microsoft.com/en-us/aspnet/core/blazor/components/class-libraries?view=aspnetcore-8.0&tabs=visual-studio
+-->
+<div class="my-component">
+    This component is defined in the <strong>BlazorDataStreams.Shared</strong> library.
+</div>
+<br />
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

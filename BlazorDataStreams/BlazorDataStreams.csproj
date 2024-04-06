@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Components\Pages\Streams.razor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Components\Pages\Streams.razor" />
+    <Content Remove="Components\Pages\Weather.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorDataStreams.Client\BlazorDataStreams.Client.csproj" />
+    <ProjectReference Include="..\BlazorDataStreams.Shared\BlazorDataStreams.Shared.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.2" />
+  </ItemGroup>
+
+</Project>

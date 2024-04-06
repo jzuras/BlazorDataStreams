@@ -1,0 +1,46 @@
+﻿@page "/StreamsOnServer"
+
+@using BlazorDataStreams.Shared
+
+<PageTitle>Streams Page Running Server-Side</PageTitle>
+
+<div class="text-center">
+    <h4>Available Streams</h4>
+
+    <div id="streamTable" class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Display</th>
+                    <th>Client or Server</th>
+                    <th>Name</th>
+                    <th>Min Value</th>
+                    <th>Max Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in streamList!)
+                {
+                    <StreamTableRow Item="@item" ClientOrServer="Server" @rendermode="InteractiveServer" />
+                    <StreamTableRow Item="@item" ClientOrServer="Client" @rendermode="InteractiveWebAssembly" />
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<p></p>
+
+<hr />
+
+Running on Server
+<div style="border: 4px solid #ccc; padding: 5px">
+    <DataDisplay ClientOrServer="Server" @rendermode="RenderMode.InteractiveServer" />
+</div>
+
+<hr />
+
+Running on Client
+<div style="border: 4px solid #ccc; padding: 5px">
+    <DataDisplay ClientOrServer="Client" @rendermode="RenderMode.InteractiveWebAssembly" />
+</div>
+
