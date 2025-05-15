@@ -6,4 +6,4 @@ For my first Blazor project, I wanted to learn about how components can run on b
 
 To do this, I adapted my DataStreams project to Blazor. I had an idea of how the components would compare, but I was completely wrong. See my [LI post Part A](https://www.linkedin.com/feed/update/urn:li:share:7182478564984803328/) to learn why.
 
-As with the other Learning Journey repos, this project is running on Azure, and can be found [here](https://blazordatastreams.azurewebsites.net/).
+As with the other Learning Journey repos, this project is running on Azure; contact me via LinkedIn for more info.
